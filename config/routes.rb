@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'profile_pages/profile'
+
   devise_for :users
   #get 'static_pages/index'
 

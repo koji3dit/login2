@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_sei: MyString
+  name_mei: MyString
+  kname_sei: MyString
+  kname_mei: MyString
+
+two:
+  name_sei: MyString
+  name_mei: MyString
+  kname_sei: MyString
+  kname_mei: MyString
