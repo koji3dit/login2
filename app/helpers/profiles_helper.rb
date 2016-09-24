@@ -1,4 +1,4 @@
-module ProfilePagesHelper
+module ProfilesHelper
   def resource_name
     :user
   end
@@ -10,7 +10,7 @@ module ProfilePagesHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
-  def resource_simei
+  def resource_user_profile
       :simei
   end
   
