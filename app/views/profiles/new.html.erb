@@ -18,6 +18,9 @@
       
       <%= fields_for(@profile) do |profile| %>
         <%= profile.hidden_field :user_id %>
+
+        <%= profile.label :sutuff_code %><br />
+        <%= profile.text_field :stuff_code,  class: "form-control" %>
       <% end %>
 
       <div class="field">

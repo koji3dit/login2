@@ -1,8 +1,4 @@
 class ProfilesController < ApplicationController
-  #before_action :authenticate_user!, except: [:new, :create]
-
-  def profile
-  end
 
   def new
     @user = User.new
@@ -22,35 +18,28 @@ class ProfilesController < ApplicationController
       end
     end
   end
-  
+
   def edit
     @user = User.find(params[:user_id])
     @profile = Profile.find(params[:profile_id])
   end
-    
-    
-    
 
   private
-   def user_params
-     params.require(:user).permit(:name, :email, :password, :password_confimation, :admin)
-   end
-   
-  def profile_params
-    params.require(:profile).permit(:user_id)
-  end
-
-  # def simei_params
-  #   params.require(:simei).permit(:name_sei, :name_mei, :kname_sei, :kneme_mei)
-  # end
-   
-  def profile_save
-    if @profile.save
-      redirect_to @user
-    else
-      render 'new'
-      raise ActiveRecord::Rollback
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confimation, :admin)
     end
-  end
+   
+    def profile_params
+      params.require(:profile).permit(:user_id, :stuff_code)
+    end
+     
+    def profile_save
+      if @profile.save
+        redirect_to @user
+      else
+        render 'new'
+        ActiveRecord::Rollback
+      end
+    end
 
 end
