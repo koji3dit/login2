@@ -3,3 +3,5 @@
 
 <%= @user.inspect %><br>
 <%= @user.profile.inspect %>
+
+<%= render 'shared/links', user: @user, profile: @user.profile %>

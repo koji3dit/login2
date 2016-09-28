@@ -1,11 +1,11 @@
 <div class="panel panel-primary devise-bs">
   <div class="panel-heading">
-  <h2 class="panel-title">一般ユーザーの登録 new</h2>
+  <h2 class="panel-title">管理ユーザーのプロフィール登録</h2>
   </div>
     <div class="panel-body">
      <div class="row" id="user_new">
       <div class="col-sm-offset-4 col-sm-4">   
-      <%= form_for(@user, url: {action: :create}, html: {method: :post}) do |f| %>
+      <%= form_for(@user, url: admin_profile_path(@user), html: {method: "post"}) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <%= fields_for(@profile) do |profile| %>
           <%= render 'shared/error_messages', object: profile.object %>
@@ -13,12 +13,12 @@
       
       <div class="form-group">
         <%= f.label :name %>
-        <%= f.text_field :name,  class: "form-control" %>
+        <%= f.text_field :name, readonly: :true, class: "form-control" %>
       </div>
 
       <div class="form-group">
         <%= f.label :email %>
-        <%= f.email_field :email,  class: "form-control" %>
+        <%= f.email_field :email, readonly: :true, class: "form-control" %>
       </div>
       
       <%= fields_for(@profile) do |profile| %>
@@ -29,19 +29,6 @@
         </div>
       <% end %>
 
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off",  class: "form-control" %>
-      </div>
-
-      <div class="field">
-         <%= f.label :password_confirmation %><br />
-         <%= f.password_field :password_confirmation, autocomplete: "off",  class: "form-control" %>
-      </div>
-
       <div class="form-group">
         <%= f.submit "POST", class: "btn btn-default" %>
       </div>
@@ -50,4 +37,4 @@
    </div>
   </div>
 </div>
-<%= render 'shared/links', user: @user, profile: @profile %>
+<%= render 'shared/links', user: @user, profile: @user.profile %>
