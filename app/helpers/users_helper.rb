@@ -1,4 +1,5 @@
 module UsersHelper
+
   def create_transaction(parent, child)
     parent.transaction do
       child.transaction do

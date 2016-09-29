@@ -28,7 +28,6 @@ class ProfilesController < ApplicationController
     @user = User.new(user_params)
     @profile = Profile.new(profile_params)
     @user.admin = false
-    @user.encrypted_password = @user.encrypted_password
     create_transaction(@user, @profile)
     redirect_to @user
     rescue => e
@@ -70,6 +69,4 @@ class ProfilesController < ApplicationController
         redirect_to new_admin_profile_path(current_user)
       end
     end
-
-
 end
