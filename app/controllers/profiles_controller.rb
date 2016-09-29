@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  include UsersHelper
+
   before_action :set_params, only: [:edit, :update]
   before_action :set_user, only: [:admin_new, :admin_create]
   before_action :admin_redirect, except: [:admin_new, :admin_create]
@@ -26,13 +28,8 @@ class ProfilesController < ApplicationController
     @user = User.new(user_params)
     @profile = Profile.new(profile_params)
     @user.admin = false
-    @user.transaction do
-      @profile.transaction do
-        @user.save
-        @profile.user_id = @user.id
-        @profile.save!
-      end
-    end
+    @user.encrypted_password = @user.encrypted_password
+    create_transaction(@user, @profile)
     redirect_to @user
     rescue => e
     render 'new'
@@ -43,12 +40,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-    else
-      render 'edit'
-      return
-    end
-    if @profile.update(profile_params)
+    if @profile.update(profile_params) && @user.update(user_params)
       redirect_to @user
     else
       render 'edit'
@@ -58,7 +50,7 @@ class ProfilesController < ApplicationController
   private
     def set_params
       @user = User.find(params[:user_id])
-      @user = Profile.find(params[:id])
+      @profile = Profile.find(params[:id])
     end
 
     def set_user
@@ -78,4 +70,6 @@ class ProfilesController < ApplicationController
         redirect_to new_admin_profile_path(current_user)
       end
     end
+
+
 end
