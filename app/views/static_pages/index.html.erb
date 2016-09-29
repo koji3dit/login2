@@ -1,2 +1,5 @@
 <h1>StaticPages#index</h1>
 <p>Find me in app/views/static_pages/index.html.erb</p>
+
+<%= link_to "ユーザー一覧", users_path %>
+<%= link_to "ログインユーザーページ", current_user if current_user %>

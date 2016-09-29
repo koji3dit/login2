@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@simei) do |f| %>
+
+      <%= f.label :姓 %>
+      <%= f.text_field :name_sei %>
+       <%= f.label :名 %>
+      <%= f.text_field :name_mei %>
+       <%= f.label :姓かな %>
+      <%= f.text_field :kname_sei %>
+       <%= f.label :名かな %>
+      <%= f.text_field :kname_mei %>
+      <%= f.submit "登録", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

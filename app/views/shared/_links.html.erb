@@ -1,0 +1,14 @@
+<h3>リンク</h3>
+<p>
+  <%= link_to "マイページ", current_user %><br>
+  <%= link_to "ユーザー一覧", users_path %><br>
+  <% if Profile.find_by(user_id: user.id).present? %>
+  <%= link_to_if (current_user == user) || (current_user.admin == true && user.admin == false) , "プロフィール編集", edit_user_profile_path(user, user.profile) %>
+  <% end %>
+</p>
+<% if current_user.admin %>
+<h3>管理者機能</h3>
+<p>
+  <%= link_to "一般ユーザー作成", new_profile_path %>
+</p>
+<% end %>
