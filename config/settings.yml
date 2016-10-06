@@ -1,0 +1,6 @@
+sendgrid:
+  address: 'smtp.gmail.com'
+  port: '587'
+  user_neme: '3ditsender@gmail.com'
+  passwoed: 'koji3dit'
+  domain: 'heroku.com'
