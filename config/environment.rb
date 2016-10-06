@@ -6,7 +6,7 @@ Rails.application.initialize!
  ActionMailer::Base.smtp_settings = {
   :address        => Settings.sendgrid[:address],
   :port           => Settings.sendgrid[:port],
-  :authentication => Settings.sendgrid[:authentication],
+  :authentication => :plane,
   :user_name      => Settings.sendgrid[:user_name],
   :password       => Settings.sendgrid[:password],
   :domain         => Settings.sendgrid[:domain],
