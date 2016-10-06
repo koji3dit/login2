@@ -7,8 +7,8 @@ Rails.application.initialize!
   :address        => 'smtp.sendgrid.net',
   :port           => '587',
   :authentication => :plain,
-  :user_name      => 'sgpes9iq@kke.com',
-  :password       => 'koji3dit',
+  :user_name      => '',
+  :password       => '',
   :domain         => 'heroku.com',
   :enable_starttls_auto => true
 }
