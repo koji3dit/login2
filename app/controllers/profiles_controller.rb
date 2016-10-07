@@ -28,6 +28,11 @@ class ProfilesController < ApplicationController
     @user = User.new(user_params)
     @profile = Profile.new(profile_params)
     @user.admin = false
+    # 不安要素の為ちょっと保留
+    # if params[:password] != params[:password_confirmation]
+    #   @user.passrowd = nil
+    #   render 'new'
+    # end
     create_transaction(@user, @profile)
     redirect_to @user
     rescue => e
@@ -57,7 +62,7 @@ class ProfilesController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confimation, :admin)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
     end
    
     def profile_params
