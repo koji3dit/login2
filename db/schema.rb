@@ -24,8 +24,14 @@ ActiveRecord::Schema.define(version: 20161017044007) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "profile_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "postal_code",              null: false
+    t.string   "prefectural", default: ""
+    t.string   "city",        default: ""
+    t.string   "street",      default: ""
+    t.string   "building",    default: ""
+    t.string   "type"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "addresses", ["profile_id"], name: "index_addresses_on_profile_id"
