@@ -1,0 +1,22 @@
+<% if action = "new" %>
+  <%= search_form_for(@q, url: {action: action}, html: {class: 'form-horizontal'}) do |f| %>
+    <div class="form-group">
+      <%= f.label :postal_code, class: 'label-form col-xs-2' %>
+      <div class='col-xs-3'>
+        <%= f.search_field :postal_code_start, class: 'form-control' %>
+      </div>
+        <%= render 'addresses/forms/serch_form_extend', f: f %>
+    </div>
+  <% end %>
+
+<% elsif action = "edit" %>
+  <%= search_form_for(@q, url: {action: action}, html: {class: 'form-horizontal'}) do |f| %>
+    <div class="form-group">
+      <%= f.label :postal_code, class: 'label-form col-xs-2' %>
+      <div class='col-xs-3'>
+        <%= f.search_field :postal_code_start, class: 'form-control' %>
+      </div>
+        <%= f.submit "郵便番号で検索", class: 'btn btn-default col-xs-2' %>
+    </div>
+  <% end %>
+<% end %>

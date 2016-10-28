@@ -1,60 +1,6 @@
 <h1>新規アドレス作成</h1>
 <p>Find me in app/views/addresses/new.html.erb</p>
 
-<%= search_form_for(@q, url: {action: 'new'}, html: {class: 'form-horizontal'}) do |f| %>
-  <div class="form-group">
-    <%= f.label :postal_code, class: 'label-form col-xs-2' %>
-    <div class='col-xs-3'>
-      <%= f.search_field :postal_code_start, class: 'form-control' %>
-    </div>
-      <%= f.submit "郵便番号で検索", class: 'btn btn-default col-xs-2' %>
-  </div>
-<% end %>
+<%= render 'addresses/forms/serch_form', action: "new" %>
 
-<%= form_for(@address, url: {action: 'create'}, html: {class: 'form-horizontal'}) do |f| %>
-
-  <%= f.hidden_field :postal_code %>
-
-  <div class="form-group">
-    <%= f.label :prefectural, class: 'label-form col-xs-2' %>
-    <div class='col-xs-3'>
-      <%= select_tag(:prefecture, options_from_collection_for_select(Prefectural.all, :name, :name, @address.prefectural), include_blank: true, class: 'form-control') %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :city, class: 'label-form col-xs-2' %>
-    <div class='col-xs-10'>
-      <%= f.text_field :city, class: 'form-control' %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :street, class: 'label-form col-xs-2' %>
-    <div class='col-xs-10'>
-      <%= f.text_field :street, class: 'form-control' %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :building, class: 'label-form col-xs-2' %>
-    <div class='col-xs-10'>
-      <%= f.text_field :building, class: 'form-control' %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class='col-xs-offset-2 col-xs-10'>
-      <%= f.submit class: 'btn btn-default' %>
-    </div>
-  </div>
-
-<% end %>
-
-
-<!--   # t.string :postal_code,        null: false
-  # t.string :prefectural,        default: ""
-  # t.string :city,               default: ""
-  # t.string :street,             default: ""
-  # t.string :building,           default: ""
-  # t.string :type -->
+<%= render 'addresses/forms/form', action: "create" %>
