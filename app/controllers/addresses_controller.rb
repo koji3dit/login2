@@ -3,10 +3,11 @@ class AddressesController < ApplicationController
   def new
     @q = AddressMaster.search(params[:q])
     @master = @q.result(distinct: true).first
+    p params.inspect
 
     if @q.result.count == 1
       @address = Address.new(postal_code: @master[:postal_code])
-
+      @address.type = params[:type]
       @address.postal_code = @master[:postal_code]
       @address.prefectural = Prefectural.find(@master[:prefectural_id]).name
       params[:prefectural] = @address.prefectural
@@ -24,8 +25,8 @@ class AddressesController < ApplicationController
   def create
     @address = Address.new(address_params)
     @address.prefectural = params[:prefectural]
-    @address.type = params[:type]
     if @address.save
+      p @address.inspect
       redirect_to root_path
     else
       render 'new'

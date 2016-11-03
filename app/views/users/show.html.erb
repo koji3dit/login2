@@ -1,5 +1,190 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row">
+  <div class="col-xs-3">
+    <h2><%= @user.name %></h2>
+  </div>
+  <div class="col-xs-9">
+    <h3><%= link_to "一般ユーザー作成", new_profile_path, class: 'btn btn-default' %></h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>Mock1</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-xs-12">
+        <table class="table tatable-bordered">
+          <thead>
+            <tr>
+              <th>Mock2</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th scope="row">郵便番号</th>
+              <td>
+                Mark
+                <span><%= link_to "＋", new_address_path %></span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">現住所１</th>
+              <td>Jacob</td>
+            </tr>
+            <tr>
+              <th scope="row">現住所２</th>
+              <td>Larry</td>
+            </tr>
+            <tr>
+              <th scope="row">携帯番号</th>
+              <td>Mark</td>
+            </tr>
+            <tr>
+              <th scope="row">国籍</th>
+              <td>Jacob</td>
+            </tr>
+            <tr>
+              <th scope="row">メールアドレス</th>
+              <td>Larry</td>
+            </tr>
+            <tr>
+              <th scope="row">婚姻区分</th>
+              <td>Mark</td>
+            </tr>
+            <tr>
+              <th scope="row">子供の有無</th>
+              <td>Jacob</td>
+            </tr>
+            <tr>
+              <th scope="row">同居の有無</th>
+              <td>Larry</td>
+            </tr>
+            <tr>
+              <th scope="row">緊急連絡先</th>
+              <td>Mark</td>
+            </tr>
+            <tr>
+              <th scope="row">血液型</th>
+              <td>Jacob</td>
+            </tr>
+            <tr>
+              <th scope="row">旧氏名</th>
+              <td>Larry</td>
+            </tr>
+            <tr>
+              <th scope="row">本籍</th>
+              <td>Larry</td>
+            </tr>
+            <tr>
+              <th scope="row">住民登録住所</th>
+              <td>Mark</td>
+            </tr>
+            <tr>
+              <th scope="row">通勤住所</th>
+              <td>Jacob</td>
+            </tr>
+            <tr>
+              <th scope="row">備考</th>
+              <td>Larry</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Mock4</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= @user.inspect %><br>
 <%= @user.profile.inspect %>
